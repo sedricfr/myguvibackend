@@ -21,7 +21,8 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.15.0"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "node app.js"
   },
   "eslintConfig": {
     "extends": [
