@@ -7,7 +7,7 @@ const cors = require("cors")
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors())
+app.use(cors({ origin: 'https://tubular-cheesecake-ac28b9.netlify.app'}))
 
 
 
@@ -16,7 +16,7 @@ app.get("/",cors(),(req,res)=>{
 })
 
 
-app.post("/",async(req,res)=>{
+app.post("https://tubular-cheesecake-ac28b9.netlify.app/",async(req,res)=>{
     const{email,password}=req.body
 
     try{
@@ -38,7 +38,7 @@ app.post("/",async(req,res)=>{
 
 
 
-app.post("/signup",async(req,res)=>{
+app.post("https://tubular-cheesecake-ac28b9.netlify.app/signup",async(req,res)=>{
     const{name,email,password,cpass}=req.body
 
     const data={
@@ -76,7 +76,11 @@ async function connect() {
   }
 
   connect();
-app.listen(3000,()=>{
-    console.log("port connected");
-})
+
+  const port = process.env.PORT || 3000;
+
+
+  app.listen(port, () => {
+    console.log(`App is listening on port ${port}`);
+  });
 
